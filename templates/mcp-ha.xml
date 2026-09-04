@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>mcp-ha</Name>
+  <Repository>ghcr.io/homeassistant-ai/ha-mcp:latest</Repository>
+  <Registry>https://ghcr.io/homeassistant-ai/ha-mcp</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/luck-y13/unraid-templates/issues</Support>
+  <Project>https://github.com/homeassistant-ai/ha-mcp</Project>
+  <Overview>Home Assistant MCP server (ha-mcp) — exposes Home Assistant as MCP tools over streamable-HTTP for AI agents (Claude, etc). Native HTTP transport, no wrapper needed.&#13;&#13;Set ExtraParams below to bind only to this server's Tailscale IP instead of all interfaces (e.g. -p 100.101.102.103:9583:9583) — replace with your own Tailscale IP.</Overview>
+  <Category>HomeAutomation: Tools:</Category>
+  <WebUI/>
+  <TemplateURL>https://raw.githubusercontent.com/luck-y13/unraid-templates/main/templates/mcp-ha.xml</TemplateURL>
+  <Icon>https://github.com/home-assistant.png</Icon>
+  <ExtraParams>-p YOUR_TAILSCALE_IP:9583:9583</ExtraParams>
+  <PostArgs>fastmcp run fastmcp-http.json --host 0.0.0.0 --port 9583</PostArgs>
+  <CPUset/>
+  <DateInstalled/>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="HOMEASSISTANT_URL" Target="HOMEASSISTANT_URL" Default="http://192.168.1.10:8123" Mode="" Description="Home Assistant base URL" Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="HOMEASSISTANT_TOKEN" Target="HOMEASSISTANT_TOKEN" Default="" Mode="" Description="HA long-lived access token (Profile → Security)" Type="Variable" Display="always" Required="true" Mask="true"/>
+  <Config Name="Enable Filesystem Tools" Target="HAMCP_ENABLE_FILESYSTEM_TOOLS" Default="true" Mode="" Description="Requires the ha_mcp_tools custom component in HA" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="Enable YAML Config Editing" Target="ENABLE_YAML_CONFIG_EDITING" Default="true" Mode="" Description="Requires the ha_mcp_tools custom component in HA" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="Enable Custom Component Integration" Target="HAMCP_ENABLE_CUSTOM_COMPONENT_INTEGRATION" Default="true" Mode="" Description="Requires the ha_mcp_tools custom component in HA" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

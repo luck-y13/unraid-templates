@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>mcp-ssh</Name>
+  <Repository>ghcr.io/luck-y13/mcp-ssh:latest</Repository>
+  <Registry>https://ghcr.io/luck-y13/mcp-ssh</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/luck-y13/unraid-templates/issues</Support>
+  <Project>https://github.com/luck-y13/unraid-templates</Project>
+  <Overview>Custom SSH MCP server — exposes SSH access to a fleet of hosts as MCP tools over streamable-HTTP for AI agents, via a bundled ed25519 key. Generic and reusable: hosts are configured entirely through SSH_HOSTS below, nothing is hardcoded in the image.&#13;&#13;Mount your private key read-only into the container (see the SSH Key path below) and set ExtraParams to bind only to this server's Tailscale IP instead of all interfaces, e.g. -p YOUR_TAILSCALE_IP:8905:8905.</Overview>
+  <Category>Network: Tools:</Category>
+  <WebUI/>
+  <TemplateURL>https://raw.githubusercontent.com/luck-y13/unraid-templates/main/templates/mcp-ssh.xml</TemplateURL>
+  <Icon>https://github.com/luck-y13.png</Icon>
+  <ExtraParams>-p YOUR_TAILSCALE_IP:8905:8905</ExtraParams>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled/>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="SUPERGATEWAY_PORT" Target="SUPERGATEWAY_PORT" Default="8905" Mode="" Description="Port inside the container — must match the container-side port in ExtraParams" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+  <Config Name="SSH_HOSTS" Target="SSH_HOSTS" Default="" Mode="" Description="Comma-separated hosts to expose, format name:host:username,name:host:username,... e.g. host1:192.168.1.10:admin,host2:192.168.1.11:admin" Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="SSH Key" Target="/root/.ssh/id_ed25519" Default="/mnt/user/appdata/mcp-ssh/id_ed25519" Mode="ro" Description="ed25519 private key for SSH access to your fleet" Type="Path" Display="always" Required="true" Mask="false"/>
+</Container>

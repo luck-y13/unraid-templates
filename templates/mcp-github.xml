@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>mcp-github</Name>
+  <Repository>ghcr.io/github/github-mcp-server:latest</Repository>
+  <Registry>https://ghcr.io/github/github-mcp-server</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/luck-y13/unraid-templates/issues</Support>
+  <Project>https://github.com/github/github-mcp-server</Project>
+  <Overview>Official GitHub MCP server — exposes GitHub (Issues, PRs, Actions, Discussions, security, etc) as MCP tools over streamable-HTTP for AI agents. Runs the official binary's built-in `http` mode (default port 8082) instead of the default stdio mode via the PostArgs field below.&#13;&#13;Set ExtraParams below to bind only to this server's Tailscale IP instead of all interfaces (e.g. -p 100.101.102.103:8906:8082) — replace with your own Tailscale IP.&#13;&#13;IMPORTANT: in this native http mode, the GITHUB_PERSONAL_ACCESS_TOKEN env var below is NOT read per-request — every MCP client must send the PAT itself as an `Authorization: Bearer &lt;token&gt;` header, or it gets an OAuth negotiation error instead of a permissions error.</Overview>
+  <Category>Tools: Productivity:</Category>
+  <WebUI/>
+  <TemplateURL>https://raw.githubusercontent.com/luck-y13/unraid-templates/main/templates/mcp-github.xml</TemplateURL>
+  <Icon>https://github.com/github.png</Icon>
+  <ExtraParams>-p YOUR_TAILSCALE_IP:8906:8082</ExtraParams>
+  <PostArgs>http</PostArgs>
+  <CPUset/>
+  <DateInstalled/>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="GITHUB_PERSONAL_ACCESS_TOKEN" Target="GITHUB_PERSONAL_ACCESS_TOKEN" Default="" Mode="" Description="Fine-grained PAT — Contents + Issues read/write on the repos you want it to manage, at minimum" Type="Variable" Display="always" Required="true" Mask="true"/>
+</Container>

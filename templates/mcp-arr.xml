@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>mcp-arr</Name>
+  <Repository>ghcr.io/aplaceforallmystuff/mcp-arr:1.7.3</Repository>
+  <Registry>https://ghcr.io/aplaceforallmystuff/mcp-arr</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/luck-y13/unraid-templates/issues</Support>
+  <Project>https://github.com/aplaceforallmystuff/mcp-arr</Project>
+  <Overview>MCP server for the *arr media stack (Sonarr/Radarr/Lidarr/Prowlarr) — exposes them as MCP tools over streamable-HTTP for AI agents. Native HTTP transport, no wrapper needed.&#13;&#13;Pinned to 1.7.3 — 1.6.5 accepted TCP connections but never answered HTTP requests. Check the project's releases before moving off this pin.&#13;&#13;Set ExtraParams below to bind only to this server's Tailscale IP instead of all interfaces (e.g. -p 100.101.102.103:8907:8907) — replace with your own Tailscale IP.</Overview>
+  <Category>MediaApp: Tools:</Category>
+  <WebUI/>
+  <TemplateURL>https://raw.githubusercontent.com/luck-y13/unraid-templates/main/templates/mcp-arr.xml</TemplateURL>
+  <Icon>https://github.com/aplaceforallmystuff.png</Icon>
+  <ExtraParams>-p YOUR_TAILSCALE_IP:8907:8907</ExtraParams>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled/>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="MCP_TRANSPORT" Target="MCP_TRANSPORT" Default="http" Mode="" Description="Transport mode" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+  <Config Name="HOST" Target="HOST" Default="0.0.0.0" Mode="" Description="Bind address inside the container" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+  <Config Name="PORT" Target="PORT" Default="8907" Mode="" Description="Port inside the container" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+  <Config Name="SONARR_URL" Target="SONARR_URL" Default="http://192.168.1.10:8989" Mode="" Description="Sonarr base URL (leave blank if not running Sonarr)" Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="SONARR_API_KEY" Target="SONARR_API_KEY" Default="" Mode="" Description="Sonarr → Settings → General → Security → API Key" Type="Variable" Display="always" Required="false" Mask="true"/>
+  <Config Name="RADARR_URL" Target="RADARR_URL" Default="http://192.168.1.10:7878" Mode="" Description="Radarr base URL (leave blank if not running Radarr)" Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="RADARR_API_KEY" Target="RADARR_API_KEY" Default="" Mode="" Description="Radarr → Settings → General → Security → API Key" Type="Variable" Display="always" Required="false" Mask="true"/>
+</Container>

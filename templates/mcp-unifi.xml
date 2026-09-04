@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>mcp-unifi</Name>
+  <Repository>ghcr.io/sirkirby/unifi-network-mcp:latest</Repository>
+  <Registry>https://ghcr.io/sirkirby/unifi-network-mcp</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/luck-y13/unraid-templates/issues</Support>
+  <Project>https://github.com/sirkirby/unifi-mcp</Project>
+  <Overview>UniFi Network MCP server — exposes a UniFi Network Controller (e.g. Cloud Key Gen 2) as MCP tools over streamable-HTTP for AI agents. Native HTTP transport via UNIFI_MCP_HTTP_ENABLED, no wrapper needed.&#13;&#13;Set ExtraParams below to bind only to this server's Tailscale IP instead of all interfaces (e.g. -p 100.101.102.103:3000:3000) — replace with your own Tailscale IP. UNIFI_MCP_ALLOWED_HOSTS must then include that same IP:port (the server's built-in DNS-rebinding protection rejects any other Host header with a 421).</Overview>
+  <Category>Network: Tools:</Category>
+  <WebUI/>
+  <TemplateURL>https://raw.githubusercontent.com/luck-y13/unraid-templates/main/templates/mcp-unifi.xml</TemplateURL>
+  <Icon>https://github.com/sirkirby.png</Icon>
+  <ExtraParams>-p YOUR_TAILSCALE_IP:3000:3000</ExtraParams>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled/>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="UNIFI_HOST" Target="UNIFI_HOST" Default="192.168.1.2" Mode="" Description="UniFi controller IP (e.g. Cloud Key Gen 2)" Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="UNIFI_PORT" Target="UNIFI_PORT" Default="443" Mode="" Description="UniFi controller port" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="UNIFI_USERNAME" Target="UNIFI_USERNAME" Default="" Mode="" Description="Local admin username" Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="UNIFI_PASSWORD" Target="UNIFI_PASSWORD" Default="" Mode="" Description="Local admin password" Type="Variable" Display="always" Required="true" Mask="true"/>
+  <Config Name="UNIFI_SITE" Target="UNIFI_SITE" Default="default" Mode="" Description="Controller's internal site name (usually 'default' — NOT the display name shown in the UI)" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="UNIFI_VERIFY_SSL" Target="UNIFI_VERIFY_SSL" Default="false" Mode="" Description="Verify the controller's TLS cert" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="UNIFI_MCP_HTTP_ENABLED" Target="UNIFI_MCP_HTTP_ENABLED" Default="true" Mode="" Description="Enable native streamable-HTTP transport" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+  <Config Name="UNIFI_MCP_ALLOWED_HOSTS" Target="UNIFI_MCP_ALLOWED_HOSTS" Default="YOUR_TAILSCALE_IP:3000,localhost,127.0.0.1" Mode="" Description="Comma-separated Host headers the server will accept (DNS-rebinding protection) — must include the ip:port from your ExtraParams bind" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+</Container>
