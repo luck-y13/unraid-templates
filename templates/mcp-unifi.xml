@@ -28,5 +28,6 @@
   <Config Name="UNIFI_SITE" Target="UNIFI_SITE" Default="default" Mode="" Description="Controller's internal site name (usually 'default' — NOT the display name shown in the UI)" Type="Variable" Display="advanced" Required="false" Mask="false"/>
   <Config Name="UNIFI_VERIFY_SSL" Target="UNIFI_VERIFY_SSL" Default="false" Mode="" Description="Verify the controller's TLS cert" Type="Variable" Display="advanced" Required="false" Mask="false"/>
   <Config Name="UNIFI_MCP_HTTP_ENABLED" Target="UNIFI_MCP_HTTP_ENABLED" Default="true" Mode="" Description="Enable native streamable-HTTP transport" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+  <Config Name="UNIFI_MCP_HOST" Target="UNIFI_MCP_HOST" Default="0.0.0.0" Mode="" Description="HTTP bind address inside the container — defaults to 127.0.0.1 upstream, which is unreachable through Docker's port mapping. Must be 0.0.0.0." Type="Variable" Display="advanced" Required="true" Mask="false"/>
   <Config Name="UNIFI_MCP_ALLOWED_HOSTS" Target="UNIFI_MCP_ALLOWED_HOSTS" Default="YOUR_TAILSCALE_IP:3000,localhost,127.0.0.1" Mode="" Description="Comma-separated Host headers the server will accept (DNS-rebinding protection) — must include the ip:port from your ExtraParams bind" Type="Variable" Display="advanced" Required="true" Mask="false"/>
 </Container>
